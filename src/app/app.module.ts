@@ -11,13 +11,9 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
-import { Route, RouterModule, Routes } from '@angular/router';
-const appRoute : Routes = [
-  {path:'', component: HomeComponent} // To set Bydefault path keep it empty
-  ,{path:'users', component: UsersComponent, children: [{path:':id/:name', component: UserComponent}]}
-  // here users/:id(colon) will determine that id is dynamic
-  ,{path:'server', component:ServersComponent,children: [{path:':id', component:ServerComponent},{path:':id/:edit', component:ServerComponent}]}
-]
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +22,14 @@ const appRoute : Routes = [
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoute) // to import router
+    AppRoutingModule
+    //RouterModule.forRoot(appRoute) // to import router
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]

@@ -17,6 +17,6 @@ export class ServersComponent implements OnInit {
   }
   onLoadServer(id: number){
     // to build url
-    this.route.navigate(['/server',id, 'edit'],{queryParams: {allowEdit: '1'}, fragment: 'loading'});    
+    this.route.navigate(['/server',id],{queryParams: {allowEdit: '1'}, fragment: 'loading'});    
   }
 }
